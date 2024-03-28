@@ -1,5 +1,22 @@
+.container {
+  display: flex;
+  background-color: aqua;
+}
 .content {
-    width: 20px;
-    height: 20px;
-    border: 1px solid #000;
+  display: flex;
+}
+.row {
+  width: 20px;
+  height: 20px;
+  background-color: blueviolet;
+  border: 1px solid #000;
+  display: flex;
+}
+
+.secondRow {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(139, 112, 165);
+  border: 1px solid #000;
+  display: flex;
 }
