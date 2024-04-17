@@ -1,15 +1,20 @@
 const container = document.querySelector(".container");
+const sketchPad = document.createElement("div");
+container.appendChild(sketchPad);
 
-function square() {
-  for (let i = 0; i < 16; i++) {
-    const squares = document.createElement("div");
-    squares.classList.add("squares");
-    container.appendChild(squares);
+function square(size) {
+  const squares = document.createElement("div");
+  squares.classList.add("squares");
+  sketchPad.appendChild(squares);
+  for (let i = 0; i < size; i++) {
+    const column = document.createElement("div");
+    column.classList.add("column");
     for (let j = 0; j < 16; j++) {
-      const row = document.createElement("div");
+      let row = document.createElement("div");
       row.classList.add("row");
-      container.appendChild(row);
+      column.appendChild(row);
     }
+    squares.appendChild(column);
   }
 }
-square();
+square(16);
