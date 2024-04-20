@@ -10,11 +10,16 @@ function square(size) {
     const column = document.createElement("div");
     column.classList.add("column");
     for (let j = 0; j < 16; j++) {
-      let row = document.createElement("div");
-      row.classList.add("row");
-      column.appendChild(row);
+      const block = document.createElement("div");
+      block.classList.add("block");
+      block.addEventListener("mouseenter", changeColor)
+      column.appendChild(block);
     }
     squares.appendChild(column);
   }
 }
 square(16);
+
+function changeColor() {
+  block.target.style.backgroundcolor = "black"
+}
