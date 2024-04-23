@@ -2,6 +2,8 @@ const container = document.querySelector(".container");
 const sketchPad = document.createElement("div");
 container.appendChild(sketchPad);
 
+let blockNum = 0;
+square(16);
 function square(size) {
   const squares = document.createElement("div");
   squares.classList.add("squares");
@@ -9,17 +11,23 @@ function square(size) {
   for (let i = 0; i < size; i++) {
     const column = document.createElement("div");
     column.classList.add("column");
-    for (let j = 0; j < 16; j++) {
+    for (let j = 0; j < size; j++) {
+      blockNum++;
       const block = document.createElement("div");
-      block.classList.add("block");
-      block.addEventListener("mouseenter", changeColor)
+      block.classList.add("block", `number${blockNum}`);
       column.appendChild(block);
     }
     squares.appendChild(column);
   }
+  changeColor(blockNum);
 }
-square(16);
 
-function changeColor() {
-  block.target.style.backgroundcolor = "black"
+function changeColor(color) {
+  for (let i = 1; i < color; i++) {
+    let colorChange = "." + "number" + i;
+    let boxhover = document.querySelector(colorChange);
+    boxhover.addEventListener("mouseover", (e) => {
+      e.target.style.backgroundColor = "blue";
+    });
+  }
 }
