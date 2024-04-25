@@ -1,25 +1,33 @@
 const container = document.querySelector(".container");
-const sketchPad = document.createElement("div");
-container.appendChild(sketchPad);
+const sketchInput = document.createElement("div");
+sketchInput.classList.add("sketchInput");
+container.appendChild(sketchInput);
 
 let blockNum = 0;
+
+let input = document.createElement("input");
+input.type = "text";
+sketchInput.appendChild(input);
+
 let btn = document.createElement("button");
-btn.classList.add("btn")
-btn.textContent = "Number of Square"
-sketchPad.appendChild(btn);
+btn.textContent = "Number of Square";
+sketchInput.appendChild(btn);
 square(20);
 
 function square(size) {
   const squares = document.createElement("div");
   squares.classList.add("squares");
-  sketchPad.appendChild(squares);
+  container.appendChild(squares);
   for (let i = 0; i < size; i++) {
+    let widthSize = squares.offsetWidth / size;
     const column = document.createElement("div");
     column.classList.add("column");
     for (let j = 0; j < size; j++) {
       blockNum++;
       const block = document.createElement("div");
       block.classList.add("block", `number${blockNum}`);
+      block.style.height = `${widthSize}px`;
+      block.style.width = `${widthSize}px`;
       column.appendChild(block);
     }
     squares.appendChild(column);
