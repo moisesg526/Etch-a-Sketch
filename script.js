@@ -5,14 +5,19 @@ container.appendChild(sketchInput);
 
 let blockNum = 0;
 
-let input = document.createElement("input");
-input.type = "text";
-sketchInput.appendChild(input);
+// let input = document.createElement("input");
+// input.type = "text";
+// sketchInput.appendChild(input);
 
 let btn = document.createElement("button");
-btn.textContent = "Number of Square";
+btn.textContent = "Change number of Squares";
 sketchInput.appendChild(btn);
 square(20);
+
+function callPrompt() {
+  let setNum = prompt("Enter Number of squares per side. No more than 100!");
+  alert(setNum);
+}
 
 function square(size) {
   const squares = document.createElement("div");
