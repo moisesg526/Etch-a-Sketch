@@ -11,6 +11,7 @@ let blockNum = 0;
 
 let btn = document.createElement("button");
 btn.textContent = "Change number of Squares";
+btn.addEventListener("click", callPrompt); 
 sketchInput.appendChild(btn);
 square(20);
 
