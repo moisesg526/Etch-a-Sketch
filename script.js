@@ -3,21 +3,29 @@ const sketchInput = document.createElement("div");
 sketchInput.classList.add("sketchInput");
 container.appendChild(sketchInput);
 
-let blockNum = 0;
 
-// let input = document.createElement("input");
-// input.type = "text";
-// sketchInput.appendChild(input);
+let blockNum = 0;
 
 let btn = document.createElement("button");
 btn.textContent = "Change number of Squares";
-btn.addEventListener("click", callPrompt); 
-sketchInput.appendChild(btn);
-square(20);
+btn.addEventListener("click", (e) => {
+  let squareSize = prompt(
+    "Enter Number of squares per side. No less than 0 and nomore than 100!"
+  );
+  if (squareSize <= 0 || squareSize > 100) {
+    alert("Please enter a number between 1 and 100");
+  } else {
+    square(squareSize);
+  }
+});
 
-function callPrompt() {
-  let setNum = prompt("Enter Number of squares per side. No more than 100!");
-  alert(setNum);
+sketchInput.appendChild(btn);
+
+
+function clearGrid() {
+  while (container.firstChild) {
+    container.firstChild.remove();
+  }
 }
 
 function square(size) {

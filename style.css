@@ -37,8 +37,8 @@ body {
 .squares {
   display: flex;
   justify-content: center;
-  width: 800px;
-  height: 800px;
+  width: 1000px;
+  height: 1000px;
   box-sizing: border-box;
   flex-wrap: nowrap;
 }
