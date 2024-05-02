@@ -1,29 +1,20 @@
-const container = document.querySelector(".container");
-const sketchInput = document.createElement("div");
-sketchInput.classList.add("sketchInput");
-sketchInput.appendChild(btn);
-container.appendChild(sketchInput);
+let clear = document.querySelector("button");
+let container = document.querySelector(".container"); 
 
-const squares = document.createElement("div");
-squares.classList.add("squares");
-container.appendChild(squares);
-
-let btn = document.createElement("button");
-btn.textContent = "Change number of Squares";
-btn.addEventListener("click", () => {
-  resetSquares();
+clear.addEventListener("click", () => {
+  resetSize();
 });
 
-function resetSquares() {
-  let number = prompt("Pick a size between 1 and 100");
+function resetSize() {
+  let number = prompt("Select size between 1-100");
   container.style.gridTemplateRows = `repeat(${number}, 1fr)`;
   container.style.gridTemplateColumns = `repeat(${number}, 1fr)`;
-  square(number);
+  createGrid(number);
 }
 
-function square(size) {
-  squares.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-  squares.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+function createGrid(size) {
+  container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+  container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 
   for (let i = 0; i < size * size; i++) {
     let square = document.createElement("div");
@@ -43,13 +34,5 @@ function square(size) {
     clearGrid();
   }
 }
-square(16);
-// function changeColor(color) {
-//   for (let i = 1; i <= color; i++) {
-//     let colorChange = "." + "number" + i;
-//     let boxhover = document.querySelector(colorChange);
-//     boxhover.addEventListener("mouseover", (e) => {
-//       e.target.style.backgroundColor = "white";
-//     });
-//   }
-// }
+
+createGrid(16);
